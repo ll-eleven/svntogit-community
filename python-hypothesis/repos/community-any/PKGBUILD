@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=python-hypothesis
-pkgver=5.23.7
+pkgver=5.29.4
 pkgrel=1
 pkgdesc="Advanced Quickcheck style testing library for Python"
 arch=('any')
@@ -15,12 +15,12 @@ optdepends=('python-pytz: for datetime and django module'
             'python-pytest: for pytest module'
             'python-lark-parser: for lark module')
 makedepends=('python-setuptools')
-checkdepends=('python-pytest-runner' 'flake8' 'python-pytz' 'python-numpy' 'python-faker'
+checkdepends=('python-pytest' 'flake8' 'python-pytz' 'python-numpy' 'python-faker'
               'python-flaky' 'python-django' 'python-mock' 'python-pandas' 'python-dpcontracts'
               'python-pytest-xdist' 'python-lark-parser' 'python-pexpect' 'python-coverage'
               'python-typing_extensions' 'python-black')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/HypothesisWorks/hypothesis/archive/hypothesis-python-$pkgver.tar.gz")
-sha512sums=('9e4a52d149f84b895cb72ab955997caf1070f778ae15c3401602ba86ca0cbe7ea2a6603821bd7c0d79ce59bb41adb21e0cb11f22ab179e9657784c2da40685f2')
+sha512sums=('9da4b487fd3c56540a20e2fbff635704f0720f422d8a398d0accd24a1fb9517476b0d29135b9113a96e8dc98fcfc31cc53215ad82cb727be54e4e77b44d4c8e4')
 
 prepare() {
   mv hypothesis-hypothesis-python-$pkgver hypothesis-$pkgver
@@ -33,7 +33,8 @@ build() {
 
 check() {
   cd hypothesis-$pkgver/hypothesis-python
-  python setup.py pytest
+  python setup.py install --root="$PWD/tmp_install" --optimize=1
+  PYTHONPATH="$PWD/tmp_install/usr/lib/python3.8/site-packages:$PYTHONPATH" PATH="$PWD/tmp_install/usr/bin:$PATH" pytest
 }
 
 package() {

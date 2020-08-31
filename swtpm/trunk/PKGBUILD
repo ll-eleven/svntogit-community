@@ -1,0 +1,59 @@
+# Maintainer: Jonas Witschel <diabonas@archlinux.org>
+pkgname=swtpm
+pkgver=0.4.0
+_tag=72ee136b1b3aa4c8f9b431ba11253352f4783808 # git rev-parse "v$pkgver"
+pkgrel=1
+pkgdesc='Libtpms-based TPM emulator with socket, character device, and Linux CUSE interface'
+arch=('x86_64')
+url='https://github.com/stefanberger/swtpm'
+license=('BSD')
+depends=('fuse2' 'glib2' 'libseccomp' 'libtpms' 'libseccomp.so')
+makedepends=('git' 'gnutls' 'libtasn1' 'python' 'python-cryptography' 'python-setuptools' 'socat')
+checkdepends=('net-tools' 'softhsm')
+optdepends=('gnutls: swtpm_cert support'
+            'python-cryptography: swtpm_setup.sh support') 
+source=("git+$url.git?signed#tag=$_tag")
+sha512sums=('SKIP')
+validpgpkeys=('B818B9CADF9089C2D5CEC66B75AD65802A0B4211') # Stefan Berger <stefanb@linux.vnet.ibm.com>
+
+pkgver() {
+	cd "$pkgname"
+	git describe | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+	cd "$pkgname"
+
+	# Build Python module according to the Python package guidelines
+	sed -i 's/--install-layout deb/--optimize=1 --skip-build/' src/swtpm_setup/Makefile.am
+
+	# Remove usage of /usr/bin/env to avoid PATH manipulation attacks
+	sed -i 's/env //' samples/swtpm-create-tpmca samples/swtpm-create-user-config-files.in \
+	                  samples/swtpm-localca.in src/swtpm_setup/py_swtpm_setup/swtpm_setup.py \
+	                  src/swtpm_setup/swtpm_setup.sh
+
+	autoreconf --install --force
+}
+
+build() {
+	cd "$pkgname"
+	./configure --prefix=/usr --with-cuse --with-gnutls --with-seccomp \
+	            EXPECT=/usr/bin/false PIP3=/usr/bin/false # pass checks for unused dependencies 
+	make
+
+	cd src/swtpm_setup
+	python setup.py build
+}
+
+check() {
+	cd "$pkgname"
+	make check
+}
+
+package() {
+	cd "$pkgname"
+	make DESTDIR="$pkgdir" install
+	install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname"
+	echo 'u tss - "tss user for tpm2"' | install -Dm644 /dev/stdin "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
+	echo 'z /var/lib/swtpm-localca 0750 tss root' | install -Dm644 /dev/stdin "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+}

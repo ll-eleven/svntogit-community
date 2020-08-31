@@ -3,8 +3,8 @@
 # Contributor: csslayer <wengxt AT gmail com>
 
 pkgname=xcb-imdkit
-pkgver=0.0.0.20200607
-_commit=709ddd74b53e5539a239b190c45f4df881db61a3
+pkgver=0.0.0.20200808
+_commit=d6609a72465cf7e0479aea075a4d2e5d7ca018eb
 pkgrel=1
 pkgdesc="Input method development support for xcb"
 arch=('x86_64')
@@ -13,7 +13,7 @@ license=('GPL')
 depends=('xcb-util' 'xcb-util-keysyms')
 makedepends=('extra-cmake-modules' 'ninja' 'uthash' 'xorgproto')
 source=("https://github.com/fcitx/xcb-imdkit/archive/$_commit/xcb-imdkit-$_commit.tar.gz")
-sha512sums=('03c84e85f7f0a038b810a7fef5f8ba3924fb6b5ee70602963a4160cb55150c166eda712f8c6825339770b29fc07310813dd99428853c224328d4d00da1b4f4d7')
+sha512sums=('850733e2d33ef37f9ee9cd88656e2ce97fb5d82ebb6bb072fdb62dcbb20a71e1b70b2b647a44243ccff3eca20a43406e49feeb02798e1358349ab2c0ae53d679')
 
 build() {
   cd $pkgname-$_commit

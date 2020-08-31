@@ -2,24 +2,23 @@
 # Maintainer: Christian Rebischke <chris.rebischke@archlinux.org>
 
 pkgname=terraform
-pkgver=0.12.29
-pkgrel=1
+pkgver=0.13.1
+pkgrel=2
 pkgdesc="HashiCorp tool for building and updating infrastructure as code idempotently"
 url="https://www.terraform.io/"
 arch=("x86_64")
 license=("MPL")
 makedepends=("go")
-source=(
-	"$pkgname-$pkgver.tar.gz::https://github.com/hashicorp/terraform/archive/v$pkgver.tar.gz"
-	"test-backport.patch"
-)
-sha512sums=('f1c05af299025b350f6748f832eb046156f97668f235281e446d9a2c400b7361c51e8195d8825a54558554cfbf907e562fb75ac27e296468c950e12f212979b5'
-            '5c7468f47c19867598bafe07322d1c5a7314286eabab6012aa70a55967967467e620f5a56aeecadf6ebd13021f2c01a4e54c70c41ee09dfd702a082507b3ae47')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/hashicorp/terraform/archive/v$pkgver.tar.gz"
+	"25555.patch")
+sha512sums=('10cb69d5eeeb692fe5c423c0326ee1248115de89c52e3e10e350108fa7e9bcfea1133fc7c3eb1ee3e3391608e9ab05bae6b0f00de68210ecdca8b13f0e4314a4'
+            'bb88abb0b57d2a1f779df2036fe529cb17c95fbfc8831a79fdb7a97a7790d3e7247998c2757d7dd7c6193dd48bc99893363363dcf2b26f6d1ecc6f4cb2568c2a')
 changelog="CHANGELOG.md"
 
 prepare() {
 	cd "$pkgname-$pkgver"
-	patch -Np1 < "${srcdir}/test-backport.patch"
+	#  helper/schema: ensure test works with Go 1.15 error messages
+	patch -p1 < "${srcdir}/25555.patch"
 }
 
 build() {
@@ -28,7 +27,7 @@ build() {
 	export CGO_CFLAGS="${CFLAGS}"
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 	export CGO_LDFLAGS="${LDFLAGS}"
-	export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+	export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external"
 	go build -o terraform-binary
 }
 

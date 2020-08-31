@@ -1,7 +1,7 @@
 # Maintainer: Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
 
 pkgname=cockpit-podman
-pkgver=20
+pkgver=22
 pkgrel=1
 pkgdesc='Cockpit UI for podman containers'
 arch=('x86_64')
@@ -9,7 +9,7 @@ url='https://github.com/cockpit-project/cockpit-podman'
 license=(LGPL)
 depends=(cockpit podman)
 source=("https://github.com/cockpit-project/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
-sha256sums=('d37939ec5beddb2c821e71df6b98e524360e1e2d9fb3c75fb828e06608ce359f')
+sha256sums=('4b28449d7fb287cff1a15e3e15e47ba5288bbca52308490b590e028fbd5bc56d')
 
 package() {
   cd $pkgname

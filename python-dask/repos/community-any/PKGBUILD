@@ -2,8 +2,8 @@
 
 _pkg=dask
 pkgname=python-${_pkg}
-pkgver=2.21.0
-pkgrel=2
+pkgver=2.24.0
+pkgrel=1
 pkgdesc="Parallel computing with task scheduling"
 arch=(any)
 url="https://dask.org"
@@ -32,8 +32,12 @@ optdepends=(
 checkdepends=(
     ipython
     python-pytest
+    python-aiohttp
 #    python-bokeh
+    python-boto3
+    python-botocore
     python-cloudpickle
+    python-cytoolz
 #    python-cityhash
     python-distributed
 #    python-fastparquet
@@ -41,8 +45,11 @@ checkdepends=(
 #    python-gcsfs
     python-graphviz
     python-h5py
+    python-httpretty
     python-jsonschema
+    python-lz4
     python-matplotlib
+    python-moto
 #    python-murmurhash
     python-numexpr
     python-numpy
@@ -53,7 +60,9 @@ checkdepends=(
     python-pytables
     python-requests
 #    python-s3fs
+    python-scikit-learn
     python-scipy
+    python-snappy
     python-sqlalchemy
     python-toolz
     python-xarray
@@ -61,7 +70,7 @@ checkdepends=(
 )
 source=(https://files.pythonhosted.org/packages/source/${_pkg::1}/${_pkg}/${_pkg}-${pkgver}.tar.gz)
 #source=(https://github.com/dask/dask/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz)
-sha256sums=('c188195a7c73e0d27af5308e8ac7d62b6d1e95b670280db2c102d737bf711b55')
+sha256sums=('b4a40a3e4960700074a426d7759f53572621e8cd6358306f193e7e66ea6fd889')
 
 build() {
   cd ${_pkg}-${pkgver}

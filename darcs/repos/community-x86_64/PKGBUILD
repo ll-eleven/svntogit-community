@@ -2,24 +2,29 @@
 # Contributor: Arch Haskell Team <arch-haskell@haskell.org>
 
 pkgname=darcs
-pkgver=2.14.4
-pkgrel=36
+pkgver=2.16.2
+pkgrel=6
 pkgdesc="A distributed, interactive, smart revision control system"
 url="http://darcs.net"
 license=("GPL")
 arch=('x86_64')
 depends=('curl' 'ghc-libs' 'haskell-async' 'haskell-attoparsec' 'haskell-base16-bytestring'
-         'haskell-cryptohash' 'haskell-data-ordlist' 'haskell-fgl' 'haskell-graphviz'
-         'haskell-hashable' 'haskell-html' 'haskell-http' 'haskell-knob' 'haskell-mmap'
-         'haskell-network' 'haskell-network-uri' 'haskell-old-time'
-         'haskell-sandi' 'haskell-random' 'haskell-regex-applicative' 'haskell-regex-compat-tdfa'
-         'haskell-tar' 'haskell-unix-compat' 'haskell-utf8-string'
+         'haskell-conduit' 'haskell-constraints' 'haskell-cryptonite' 'haskell-data-ordlist'
+         'haskell-fgl' 'haskell-hashable' 'haskell-html' 'haskell-http-conduit' 'haskell-http-types'
+         'haskell-knob' 'haskell-memory' 'haskell-mmap' 'haskell-network' 'haskell-network-uri'
+         'haskell-old-time' 'haskell-sandi' 'haskell-regex-applicative' 'haskell-regex-compat-tdfa'
+         'haskell-tar' 'haskell-temporary' 'haskell-unix-compat' 'haskell-utf8-string'
          'haskell-vector' 'haskell-zip-archive' 'haskell-zlib')
-makedepends=('ghc' 'haskell-cmdargs' 'haskell-findbin' 'haskell-hunit' 'haskell-quickcheck'
-             'haskell-shelly' 'haskell-split' 'haskell-test-framework'
-             'haskell-test-framework-hunit' 'haskell-test-framework-quickcheck2')
+makedepends=('ghc' 'haskell-cmdargs' 'haskell-findbin' 'haskell-hunit' 'haskell-leancheck'
+             'haskell-quickcheck' 'haskell-split' 'haskell-test-framework'
+             'haskell-test-framework-hunit' 'haskell-test-framework-leancheck'
+             'haskell-test-framework-quickcheck2'
+             # Added for their bundled shelly
+             'haskell-exceptions' 'haskell-monad-control' 'haskell-system-filepath'
+             'haskell-system-fileio' 'haskell-transformers-base')
+checkdepends=('bc' 'time')
 source=("https://hackage.haskell.org/packages/archive/${pkgname}/${pkgver}/${pkgname}-${pkgver}.tar.gz")
-sha512sums=('cea95edc542328402f258f66de52c8b9fda417ecd905f957f94e1a398809652dc2f6e873e230683af97601349e0ee03095c67ba45d9c044706e12275c3fc0300')
+sha512sums=('ee43e570227a5f462e064b71323755d1179809c24ff83a904aefa32494c4655b41b4b3291411b5abc1e1e75be894cde6070aa072b51905ddf8fc2934973b25cb')
 
 prepare() {
     cd $pkgname-$pkgver
@@ -27,6 +32,9 @@ prepare() {
         -e 's/ ghc / ghc -dynamic /' \
         -i tests/*.sh tests/lib
     sed -i -e 's/< *2.14/<3/' $pkgname.cabal
+
+    # Odd issue...
+    sed -i "s|PACKAGE_VERSION|\"$pkgver\"|" src/hscurl.c
 }
 
 build() {

@@ -3,18 +3,18 @@
 # Contributor: csslayer <wengxt AT gmail com>
 
 pkgname=fcitx5-qt
-pkgver=0.0.0.20200730
-_commit=cf6daf5e41c2d6cc77a082cbf872bc7163732d48
+pkgver=0.0.0.20200822
+_commit=73bfd76dd7ad902856aa07b27c19a51301ab7377
 pkgrel=1
 pkgdesc="Fcitx5 Qt Library"
 arch=('x86_64')
 url="https://github.com/fcitx/fcitx5-qt"
 license=('GPL')
 groups=('fcitx5-im')
-depends=('fcitx5' 'qt5-x11extras')
+depends=('fcitx5' 'qt5-base')
 makedepends=('extra-cmake-modules' 'ninja')
 source=("https://github.com/fcitx/fcitx5-qt/archive/$_commit/fcitx5-qt-$_commit.tar.gz")
-sha512sums=('c2a31c56184d8c6fd14ee9d085fe7328392d5833da34feee5b1d5c280cf75a57bf90db425e38f9a4118fb23ea6dd8e28910c540813b11c3c5d0e16fdbdd2b3f7')
+sha512sums=('16ac6dcfd2f984cb8d051db536c1b90b2536c8c41b368aff9a5d709f063f8abbbd220d0c0a896c68bb038a5e2e6bed6d2ef7d94bb38a4fff4bdd7837aa0ebe06')
 
 build(){
   cd $pkgname-$_commit

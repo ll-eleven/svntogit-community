@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=python-responses
-pkgver=0.10.15
+pkgver=0.11.0
 pkgrel=1
 pkgdesc='A utility library for mocking out the `requests` Python library.'
 arch=('any')
@@ -10,16 +10,21 @@ url='https://github.com/getsentry/responses'
 depends=('python-requests' 'python-biscuits' 'python-six')
 makedepends=('python-setuptools')
 checkdepends=('python-pytest-runner' 'python-pytest-cov' 'flake8' 'python-pytest-localserver')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/getsentry/responses/archive/$pkgver.tar.gz")
-sha512sums=('3da49823493ea65b2f0bcd0f63338552df8aa553ad3ac82d150c5753dafa2275a7e1c6499c4db82883a3a4b6348ca26158301842bdc84d3a1c9c73b15b716c61')
+source=("https://github.com/getsentry/responses/archive/$pkgver/$pkgname-$pkgver.tar.gz")
+sha512sums=('467a884ec8c659e4793fc0ec1c00026b6e63f819d067c5deca451fbd00db2099e7d92288d02fb1f391e3e6e99274fb2cc00905152b6965e86b68e2401c001960')
+
+prepare() {
+  cd responses-$pkgver
+  sed -i 's/, < 5.0.0//' setup.py
+}
 
 build() {
-  cd "$srcdir"/responses-$pkgver
+  cd responses-$pkgver
   python setup.py build
 }
 
 check() {
-  cd "$srcdir"/responses-$pkgver
+  cd responses-$pkgver
   python setup.py pytest
 }
 

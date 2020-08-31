@@ -1,25 +1,24 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=pifpaf
-pkgver=2.5.0
+pkgver=3.0.0
 pkgrel=1
 pkgdesc='Suite of tools and fixtures to manage daemons for testing'
 arch=('any')
 license=('Apache')
 url='https://github.com/jd/pifpaf'
-depends=('python-daiquiri' 'python-click' 'python-pbr' 'python-jinja' 'python-six'
-         'python-fixtures' 'python-psutil' 'python-xattr')
+depends=('python-daiquiri' 'python-click' 'python-pbr' 'python-jinja' 'python-fixtures'
+         'python-psutil' 'python-xattr')
 provides=("python-pifpaf=$pkgver")
 conflicts=('python-pifpaf')
 replaces=('python-pifpaf')
 makedepends=('python-setuptools')
 checkdepends=('python-testrepository' 'python-requests' 'python-testtools' 'python-oslotest'
               'memcached' 'percona-server' 'percona-server-clients' 'postgresql' 'redis'
-              'ceph' 'consul' 'couchdb')
+              'ceph' 'consul' 'couchdb' 'httpbin' 'rabbitmq')
 # 'elasticsearch': test fails
-# 'rabbitmq': test hangs
 source=("$pkgname-$pkgver.tar.gz::https://github.com/jd/pifpaf/archive/$pkgver.tar.gz")
-sha512sums=('fbbe891180cbbf592b90f76a9ab7604187f3c7c5d3fcd3a5848bf740646ae15bb08a704b5bd2ec58a3501ad5ed35c2d027eba026151d702283db67980a20a56d')
+sha512sums=('78d5daae08e6c5ee664619ca7683c04379502c6f667ff9ca7dd07e4dee798c1ec7c8adafb48bddcc8ba33dd0e6b09790da2f6e6d7181468450d800186faa41f4')
 
 export PBR_VERSION=$pkgver
 

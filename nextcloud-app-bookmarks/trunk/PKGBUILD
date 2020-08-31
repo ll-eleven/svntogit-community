@@ -2,7 +2,7 @@
 
 pkgname=nextcloud-app-bookmarks
 epoch=1
-pkgver=3.3.2
+pkgver=3.3.4
 pkgrel=1
 pkgdesc="Bookmarks app for nextcloud"
 arch=('any')
@@ -12,7 +12,7 @@ depends=('nextcloud')
 makedepends=()
 options=('!strip')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/nextcloud/bookmarks/releases/download/v$pkgver/bookmarks-$pkgver.tar.gz")
-sha256sums=('5636c49285fcd5ce851da1a8660699200911d10b28c2cbabbebcfae5ba0aceaa')
+sha256sums=('24974a688236718afcbf991bf3e268d4394cadef00258c28e81f878bdea65d3d')
 
 package() {
   install -d "$pkgdir"/usr/share/webapps/nextcloud/apps

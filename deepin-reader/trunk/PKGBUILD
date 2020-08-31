@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=deepin-reader
-pkgver=5.7.0.10
+pkgver=5.7.0.18
 pkgrel=1
 pkgdesc='A simple PDF reader, supporting bookmarks, highlights and annotations'
 arch=('x86_64')
@@ -11,7 +11,7 @@ depends=('deepin-qt5integration' 'djvulibre' 'karchive' 'libspectre' 'poppler-qt
 makedepends=('cmake' 'qt5-tools')
 groups=('deepin-extra')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/linuxdeepin/deepin-reader/archive/$pkgver.tar.gz")
-sha512sums=('a6e83e0e531ff05955c1e855ccdf2fd0bc6d020c7c02cefe7cb8f3273130031d5cd375b3f4acc46678e962265bfaecf903d307c30a889b7c37e9f5138e881445')
+sha512sums=('8e409d655ef51bc721f79c7e56954f3967cf4b16b829325c6a3eebacd1045236bca4a2f06c720bc5c97ea1c0aee335280ca9378edeb7fedd72ab1e172f5b28d7')
 
 prepare() {
   cd deepin-reader-$pkgver/src
@@ -33,12 +33,4 @@ build() {
 package() {
   cd deepin-reader-$pkgver
   make INSTALL_ROOT="$pkgdir" install
-
-  # What the bloody hell is going on here...
-  cd "$pkgdir"/usr/lib
-  rm libdpoppler-qt.so{,.1} libdpoppler.so{,.100}
-  ln -s libdpoppler-qt.so.* libdpoppler-qt.so.1
-  ln -s libdpoppler-qt.so.1 libdpoppler-qt.so
-  ln -s libdpoppler.so.* libdpoppler.so.100
-  ln -s libdpoppler.so.100 libdpoppler.so
 }

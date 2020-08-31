@@ -1,21 +1,25 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=deepin-calculator
-pkgver=5.5.25
+pkgver=5.5.33
 pkgrel=1
 pkgdesc='An easy to use calculator for ordinary users'
 arch=('x86_64')
 url="https://github.com/linuxdeepin/deepin-calculator"
 license=('GPL3')
 depends=('deepin-qt5integration')
-makedepends=('cmake' 'ninja' 'qt5-tools')
+makedepends=('cmake' 'gmock' 'gtest' 'ninja' 'qt5-tools')
 groups=('deepin-extra')
 source=("https://github.com/linuxdeepin/deepin-calculator/archive/$pkgver/$pkgname-$pkgver.tar.gz")
-sha512sums=('eda3f301e220542b821e8ae97c8fa0cfc68915c8506f62db470afa1e90e0297830a20e0d486c8021aa08c40e163e17932e2a0ac1c98130cc9a82ee93df407469')
+sha512sums=('727aaffa20d0cf32a8761ea137bc641f315aabf5f7c56e84f6e20c7efc7e75976f91b61f37dfdda48e0cc52476b87df82941dd1d98ba2dcb86319f120e83caf4')
 
 prepare() {
   cd deepin-calculator-$pkgver
-  sed -i '1i#include <QPainterPath>' src/modules/simplelistdelegate.cpp src/widgets/equalbutton.cpp
+  sed -i '1i#include <QPainterPath>' src/views/simplelistdelegate.cpp
+
+  # debundle gmock/gtest
+  sed -i '/third_party/d' CMakeLists.txt
+  rm -r third_party
 }
 
 build() {

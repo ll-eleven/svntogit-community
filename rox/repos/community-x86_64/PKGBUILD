@@ -3,7 +3,7 @@
 
 pkgname=rox
 pkgver=2.11
-pkgrel=4
+pkgrel=6
 pkgdesc="A small and fast file manager which can optionally manage the desktop background and panels"
 arch=('x86_64')
 license=('GPL')
@@ -13,7 +13,7 @@ makedepends=('librsvg' 'python')
 source=("https://downloads.sourceforge.net/${pkgname}/rox-filer-${pkgver}.tar.bz2"
         'rox.desktop' 'rox.svg' 'rox.sh')
 md5sums=('0eebf05a67f7932367750ebf9faf215d'
-         'de05c906395abd4402b0470c1bc2ae6e'
+         '17ed79146c329033bf62f5956820aef4'
          '658c8648b51e215558e13e6afb2b5c76'
          '31578a90b241f0a8d09c9f8587608d00')
 
@@ -24,11 +24,11 @@ prepare() {
 
 build() {
   cd "$srcdir/rox-filer-$pkgver"
-  ./ROX-Filer/AppRun --compile LIBS="-ldl -lm"
+  ./ROX-Filer/AppRun --compile CFLAGS="$CFLAGS -fcommon" LIBS="-ldl -lm"
   # finally we render a png as fallback for svg unaware menu applications
   # Attention: always make sure you check the dimensions of the source-svg,
   # you can read the dimensions via inkscape's export function
-  rsvg-convert -w 48 -h 38 -f png -o "$srcdir/rox.png" "$srcdir/rox.svg"
+  rsvg-convert -w 125 -h 100 -f png -o "$srcdir/rox.png" "$srcdir/rox.svg"
 }
 
 package() {

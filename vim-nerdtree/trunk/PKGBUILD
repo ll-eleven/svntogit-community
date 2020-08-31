@@ -6,7 +6,7 @@
 # Contributor: Laszlo Papp <djszapi @ gmail at com>
 
 pkgname=vim-nerdtree
-pkgver=6.9.1
+pkgver=6.9.6
 pkgrel=1
 pkgdesc='Tree explorer plugin for navigating the filesystem'
 url='https://github.com/scrooloose/nerdtree'
@@ -15,7 +15,7 @@ license=('custom:WTFPL')
 depends=('vim')
 groups=('vim-plugins')
 source=(https://github.com/scrooloose/nerdtree/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz)
-sha512sums=('8379f7a194fe348d05064f8cab2f9de57a81553da368d7d9b06a869556e80973d45780730b7fedc0874b92e569ffa369db1a7aa55779e621ba7ad8bcbd1e3942')
+sha512sums=('6d112320f7172c9507144d3ace4c1513fb68d879d520aedc74c225ca81faf4477367085f896614f16cec6cb4cc9d579cabee02a484652d980486394a27dc2ef6')
 
 prepare() {
   cd nerdtree-${pkgver}

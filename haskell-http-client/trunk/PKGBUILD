@@ -3,19 +3,18 @@
 
 _hkgname=http-client
 pkgname=haskell-http-client
-pkgver=0.7.1
-pkgrel=13
+pkgver=0.7.2.1
+pkgrel=5
 pkgdesc="An HTTP client engine"
 url="https://github.com/snoyberg/http-client"
 license=("MIT")
 arch=('x86_64')
 depends=('ghc-libs' 'haskell-blaze-builder' 'haskell-case-insensitive' 'haskell-cookie'
          'haskell-http-types' 'haskell-memory' 'haskell-mime-types'
-         'haskell-network' 'haskell-network-uri' 'haskell-random' 'haskell-streaming-commons'
-        )
+         'haskell-network' 'haskell-network-uri' 'haskell-random' 'haskell-streaming-commons')
 makedepends=('ghc' 'haskell-async' 'haskell-hspec' 'haskell-monad-control' 'haskell-zlib')
 source=("https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz")
-sha512sums=('82f9b85a5da976f8bc965a625dca2e1795bb53f88babf830aa82b511046da223fc1966d139c2d1c3d1f55103d7130715bab38a9280ec7dd9b579ead47fc068eb')
+sha512sums=('1d4f27a191ee3ae45db918a24c58d71e93b9ba92a78b5a0483d7ae8265b6c8181502ce79f26cc614092df5e68e84a979ca68850078329fda2d0bd98fb390c364')
 
 build() {
     cd $_hkgname-$pkgver
@@ -32,7 +31,7 @@ build() {
 
 check() {
     cd $_hkgname-$pkgver
-    runhaskell Setup test || :  # https://github.com/postmanlabs/httpbin/issues/617
+    runhaskell Setup test
 }
 
 package() {

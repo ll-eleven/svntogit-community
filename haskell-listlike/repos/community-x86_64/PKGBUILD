@@ -2,8 +2,8 @@
 
 _hkgname=ListLike
 pkgname=haskell-listlike
-pkgver=4.7.1
-pkgrel=1
+pkgver=4.7.2
+pkgrel=3
 pkgdesc="Generic support for list-like structures"
 url="https://github.com/ddssff/listlike"
 license=('BSD')
@@ -11,7 +11,7 @@ arch=('x86_64')
 depends=('ghc-libs' 'haskell-dlist' 'haskell-fmlist' 'haskell-utf8-string' 'haskell-vector')
 makedepends=('ghc' 'haskell-hunit' 'haskell-quickcheck' 'haskell-random')
 source=("https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz")
-sha512sums=('839f20ee20ee9515465060f168f15ad1810a72b2b5729c35c7643949caf2706c95bd3a64d4c8dd4a33edf18b2822c971870a5c7632a282e9dc400f5185d45090')
+sha512sums=('bfb9c0bf805cb4cd43032263f52c015ac87829e90369035d9bccebc21d18434c608cc4202fd19b00c68e8c4b562bea1e344741327632d06081b625d0c8bac2df')
 
 build() {
     cd $_hkgname-$pkgver

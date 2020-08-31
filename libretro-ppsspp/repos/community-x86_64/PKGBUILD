@@ -2,7 +2,7 @@
 # Contributor: Duck Hunt <vaporeon@tfwno.gf>
 
 pkgname=libretro-ppsspp
-pkgver=27598
+pkgver=27774
 pkgrel=1
 pkgdesc='Sony PlayStation Portable core'
 arch=(x86_64)
@@ -26,7 +26,7 @@ makedepends=(
   libglvnd
   python
 )
-_commit=70802e61de670fc66de23356a6ffab9b4b018d9b
+_commit=c2c2ba7ebab586ba50f86c6d7cc3e9120e5cea4d
 source=(
   libretro-ppsspp::git+https://github.com/hrydgard/ppsspp.git#commit=${_commit}
   git+https://github.com/Kingcom/armips.git

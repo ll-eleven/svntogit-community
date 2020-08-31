@@ -2,16 +2,16 @@
 
 _hkgname=these
 pkgname=haskell-these
-pkgver=1.1
-pkgrel=4
+pkgver=1.1.1.1
+pkgrel=8
 pkgdesc="An either-or-both data type"
 url="https://github.com/isomorphism/these"
 license=('BSD')
 arch=('x86_64')
-depends=('ghc-libs' 'haskell-assoc' 'haskell-base-compat' 'haskell-hashable')
+depends=('ghc-libs' 'haskell-assoc' 'haskell-hashable')
 makedepends=('ghc')
 source=(https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-sha512sums=('3a34257e5a0cbd7a59317435ef401970b6723bbaa699d0edb6a0a8252a01a390274669da916d4956d63c4184a1e0562e371b10dee46a7d4e59787fda0c2ec8f0')
+sha512sums=('23246164648bf4cb028719e7cb2e5f450ab55558af9e1dc7f0ddec323ca4ce124afbfd3bf367446c2d69ec91abe42daf77e11a26a13f2898275dafbc095637d5')
 
 prepare() {
     cd $_hkgname-$pkgver
