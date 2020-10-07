@@ -4,9 +4,9 @@
 # Contributor: Anatol Pomozov <anatol.pomozov@gmail.com>
 
 pkgbase=cockpit
-pkgname=(cockpit cockpit-pcp cockpit-dashboard cockpit-docker cockpit-machines)
-pkgver=226
-pkgrel=2
+pkgname=(cockpit cockpit-pcp cockpit-dashboard cockpit-machines)
+pkgver=229
+pkgrel=1
 pkgdesc='A systemd web based user interface for Linux servers'
 arch=('x86_64')
 url='https://cockpit-project.org/'
@@ -18,8 +18,8 @@ source=("https://github.com/cockpit-project/cockpit/releases/download/$pkgver/co
         "cockpit.pam"
         "cockpit-ws.sysuser.conf"
         "cockpit-wsinstance.sysuser.conf")
-sha256sums=('2f917f1b17a52ffcf957edaf885e2d2f35a267ecd4afcdb1b0e390bb3ce4e0aa'
-            'bcf619ae7da6849f02c2fd4f8d2a49e0e4c33e1f392925e83224402e001d7b64'
+sha256sums=('1d18e720da971459f0e489415b966a8149a1edf93617f3d8820a7fd68f54e1ac'
+            '15e36b125f36a7727adae5beb3dd7ec49d4017fa8b5c0db7a12e145cff17a420'
             'a979e236681c6a06906937cf0f012e976347af5d6d7e7ae04a11acb01cc2689d'
             '1ad9dad75858264778bd94799b60c651f7cc1c7f7fa1c54622174303e639287a'
             '46ee8ecad7bc97ba588ab9471dde76e41c00daf40658902425626c3a1938b438')
@@ -45,7 +45,6 @@ package_cockpit() {
   backup=('etc/pam.d/cockpit')
   optdepends=("cockpit-pcp: reading performance metrics"
               "cockpit-dashboard: dashboard and support for connecting to remote hosts"
-              "cockpit-docker: user interface for managing docker containers"
               "cockpit-podman: user interface for managing podman containers"
               "cockpit-machines: user interface for managing virtual machines"
               "udisks2: manage hard disks"
@@ -67,8 +66,8 @@ package_cockpit() {
          "$pkgdir"/usr/share/metainfo/org.cockpit-project.cockpit-{selinux,sosreport}.metainfo.xml
 
   # remove plugins packaged separately
-  rm -rf "$pkgdir"/usr/share/cockpit/{pcp,dashboard,docker,machines} \
-         "$pkgdir"/usr/share/metainfo/org.cockpit-project.cockpit-{docker,machines}.metainfo.xml \
+  rm -rf "$pkgdir"/usr/share/cockpit/{pcp,dashboard,machines} \
+         "$pkgdir"/usr/share/metainfo/org.cockpit-project.cockpit-machines.metainfo.xml \
          "$pkgdir"/usr/lib/cockpit/cockpit-pcp \
          "$pkgdir"/var/lib/pcp
 }
@@ -106,12 +105,6 @@ _do_package_component() {
 package_cockpit-dashboard() {
   pkgdesc='Cockpit support for connecting to remote servers (through ssh), bastion hosts, and a basic dashboard.'
   depends=(cockpit)
-  _do_package_component
-}
-
-package_cockpit-docker() {
-  pkgdesc='Cockpit components for interacting with Docker and user interface.'
-  depends=(cockpit docker)
   _do_package_component
 }
 

@@ -2,7 +2,7 @@
 # Contributor: Matthew Sloan matthew@sloan.cc
 
 pkgname=python-pint
-pkgver=0.15
+pkgver=0.16.1
 pkgrel=1
 pkgdesc="A unit library for Python"
 arch=('any')
@@ -12,7 +12,7 @@ depends=('python')
 makedepends=('python-setuptools-scm')
 checkdepends=('python-pytest-runner' 'python-numpy' 'python-uncertainties')
 source=("https://pypi.io/packages/source/P/Pint/Pint-$pkgver.tar.gz")
-sha512sums=('b09f4cc5efc8ea8a08c4b61d526c9e85a2a2bb8d20c1b82e6a5fd871abf87b325d4b530371886d8bb14b3c15f873495220208220d691172d25ba4e82aa934f60')
+sha512sums=('7d18ff7a7e85ff98350347a487be62513b100e4adba701a8e5f27f6db89618931d0f62b67be42bda4af097f5f01830baa5a6b50a537924287214d0d954da5322')
 
 prepare() {
   cd Pint-$pkgver

@@ -1,7 +1,7 @@
 # Maintainer: Filipe Laíns (FFY00) <lains@archlinux.org>
 
 pkgname=tree-sitter
-pkgver=0.16.9
+pkgver=0.17.1
 pkgrel=1
 pkgdesc='An incremental parsing system for programming tools'
 arch=('x86_64')
@@ -10,7 +10,7 @@ license=('MIT')
 provides=('libtree-sitter.so')
 makedepends=('git' 'cargo' 'npm' 'emscripten')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz")
-sha512sums=('SKIP')
+sha512sums=('a072622fb6299cc7e5829d2ba3188ee4366ec2242fda80948b4a0cfa9f24c7b47c4fffe05af1200617a1ba881a180456ebf56064979e55793804c469c1aa169f')
 
 build() {
   cd $pkgname-$pkgver

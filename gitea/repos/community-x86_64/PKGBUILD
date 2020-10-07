@@ -3,8 +3,8 @@
 # Contributor: Frederik Schwan <frederik dot schwan at linux dot com>
 
 pkgname=gitea
-pkgver=1.12.3
-pkgrel=1
+pkgver=1.12.4
+pkgrel=2
 pkgdesc="Painless self-hosted Git service. Community managed fork of Gogs."
 arch=(x86_64)
 url="https://gitea.io"
@@ -21,7 +21,7 @@ optdepends=(
   'sqlite: SQLite support'
 )
 backup=('etc/gitea/app.ini')
-_tag=846e630b0d88c9ae8bda54199dffbd7de23947b9 # git rev-parse v${pkgver}
+_tag=e65ff65e02fd77bb21c68724e3c682b84ad835dd # git rev-parse v${pkgver}
 source=("git+https://github.com/go-gitea/gitea.git#tag=${_tag}?signed"
         gitea.tmpfiles
         gitea.service
@@ -29,7 +29,7 @@ source=("git+https://github.com/go-gitea/gitea.git#tag=${_tag}?signed"
         gitea-arch-defaults.patch)
 sha256sums=('SKIP'
             '1521fd7edc3830c695698ffe9835709f1408040b5ec989f07410972c894fa8ba'
-            '5fce4772781c588b861cb97b3aa0945ca5a9a8120285080934a0ccbcb5503da8'
+            '3ad603263c6e79c5ab35ed37a3c45115b0af97c8beb027d2fbe7fa5cfa34b2eb'
             '7e7b798b8ce035c1fb55993ece41c5efb6cad5922708866804fa50ada0cf9fa5'
             '33ef77053a6bc8e2f5d9b62c92681909858d78356dfc7970616c42ad1dc60c57')
 validpgpkeys=(
@@ -63,9 +63,7 @@ build() {
   export EXTRA_GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
   export LDFLAGS="-X 'code.gitea.io/gitea/modules/setting.AppWorkPath=/var/lib/gitea/'"
   export TAGS="bindata sqlite sqlite_unlock_notify pam"
-  make frontend
-  make generate
-  make build
+  make -j1
 }
 
 package() {

@@ -1,8 +1,8 @@
 # Maintainer: kpcyrd <kpcyrd[at]archlinux[dot]org>
 
 pkgname=monero
-pkgver=0.16.0.3
-_commit=7bd1ed03dd29d1f194503b6fdce6588306328b72
+pkgver=0.17.0.1
+_commit=1a9a984d2631b7f01637d8119c55f8effd24f72c
 pkgrel=1
 pkgdesc="Monero: the secure, private, untraceable peer-to-peer currency"
 license=('BSD')

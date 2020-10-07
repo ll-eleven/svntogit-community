@@ -4,7 +4,7 @@
 # _name=djangorestframework
 _name=django-rest-framework
 pkgname=python-django-rest-framework
-pkgver=3.11.1
+pkgver=3.12.1
 pkgrel=1
 pkgdesc="A powerful and flexible toolkit for building Web APIs."
 arch=('any')
@@ -12,7 +12,7 @@ url="https://www.django-rest-framework.org/"
 license=('BSD')
 depends=('python-django')
 makedepends=('python-setuptools')
-checkdepends=('python-pytest' 'python-pytest-cov' 'python-pytest-django')
+checkdepends=('python-pytest' 'python-pytest-django')
 # bootstrap without python-django-filter, as it has a checkdepends on
 # python-django-rest-framework
 optdepends=('python-django-filter: for dynamic queryset filters'
@@ -25,11 +25,14 @@ optdepends=('python-django-filter: for dynamic queryset filters'
 # https://github.com/encode/django-rest-framework/issues/7141
 # source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/encode/${_name}/archive/${pkgver}.tar.gz")
-sha512sums=('36382146164d1ab1284adb55a46ec2114b27d22d9a6de57d6b1789ae0295399d6be1cfa0e1f7047f866ba6c815e210efd6c8c13170ffa8040ad016f9835d932a')
-b2sums=('068e4a3b28939f8792653abe89099d6778b420bb97c49c1f7712beff028f5e0caa0e773c1ac60528fb164a4596ceee8d39f1690d9a43f00732ae0d418020e82d')
+sha512sums=('862534df19dd1eb34162ee7be7df9cb05a521316e4647bb8da3a3e6d913e8b500b2362794fdb4a5e323fc0ec86357b2bcf969f086f7cae7f021b53749562f5de')
+b2sums=('58cdc09f2d0b4253eaf01cbbb1bc8526c0bff07689d67a8232e707b09d57f113822672a1ff233b5cc11f4e994bf44c3e509fc255ff8480b3538dc26d08fb5bf7')
 
 prepare() {
   mv -v "${_name}-${pkgver}" "$pkgname-$pkgver"
+  cd "$pkgname-$pkgver"
+  # we do not use coverage during testing
+  sed -e '/addopts/d' -i setup.cfg
 }
 
 build() {

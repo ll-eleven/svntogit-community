@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=v2ray-domain-list-community
-pkgver=20200828091356
+pkgver=20201006082808
 pkgrel=1
 pkgdesc="A list of domains to be used as geosites for routing purpose in Project V"
 arch=('any')
@@ -9,7 +9,7 @@ url="https://github.com/v2fly/domain-list-community"
 license=('MIT')
 makedepends=('go' 'git')
 source=("https://github.com/v2fly/domain-list-community/archive/$pkgver/$pkgname-$pkgver.tar.gz")
-sha512sums=('6458d5352d74852a16472d24589f237941ffaf88de59207b5a4369d0c31709ffdf3fff8504d6ee2c7ff33bd61abf229777849e87f105af217c2ef38253b3a2d9')
+sha512sums=('018ed21c79069b5ccb917068621559b850692257a185b179e94cf3130586bf46b1d27cbef9fea8a7d475602efa0fcc5887cd4f7379e0b1cda43078b8dc0a3f10')
 
 prepare() {
   mkdir .gopath
@@ -29,6 +29,6 @@ build() {
 
 package() {
   cd .gopath
-  install -Dm755 dlc.dat "$pkgdir"/usr/lib/v2ray/geosite.dat
+  install -Dm644 dlc.dat "$pkgdir"/usr/share/v2ray/geosite.dat
   install -Dm644 "$srcdir"/domain-list-community-$pkgver/LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }

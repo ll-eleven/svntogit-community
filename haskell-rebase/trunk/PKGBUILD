@@ -3,24 +3,19 @@
 
 _hkgname=rebase
 pkgname=haskell-rebase
-pkgver=1.7
-pkgrel=1
+pkgver=1.8
+pkgrel=3
 pkgdesc='A more progressive alternative to the "base" package'
 url="https://github.com/nikita-volkov/rebase"
 license=("MIT")
 arch=('x86_64')
 depends=('ghc-libs' 'haskell-bifunctors' 'haskell-contravariant' 'haskell-contravariant-extras'
-         'haskell-comonad' 'haskell-dlist' 'haskell-either' 'haskell-hashable'
+         'haskell-comonad' 'haskell-dlist' 'haskell-either' 'haskell-hashable' 'haskell-hashable-time'
          'haskell-profunctors' 'haskell-scientific' 'haskell-selective' 'haskell-semigroupoids'
          'haskell-unordered-containers' 'haskell-uuid' 'haskell-vector' 'haskell-void')
 makedepends=('ghc')
 source=("https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz")
-sha512sums=('0331e0e78a64c38e0d6f9fc0bc084e102301a26f2717d12083215669ddb9005adb6b587b7a9b94a20a10935c37ec545ca3365b4303118a289b6f7196012ba312')
-
-prepare() {
-    cd $_hkgname-$pkgver
-    sed -e '/semigroups/d' -i $_hkgname.cabal
-}
+sha512sums=('cc9fa34cce92c95b8f90cbcca3cb13bfd5501fbe5280ac89082bd954848c3947e083c955b3c65a9083333c84c5f81214204d589a425de689516129cd8cc6a171')
 
 build() {
     cd $_hkgname-$pkgver

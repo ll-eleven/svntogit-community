@@ -1,7 +1,7 @@
 # Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
 
 pkgname=dfrs
-pkgver=0.0.4
+pkgver=0.0.6
 pkgrel=1
 pkgdesc='Display file system space usage using graphs and colors'
 url='https://github.com/anthraxx/dfrs'
@@ -12,9 +12,9 @@ makedepends=('cargo' 'scdoc')
 source=(${url}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz
         ${url}/releases/download/${pkgver}/${pkgname}-${pkgver}.tar.gz.sig)
 options=('!makeflags')
-sha512sums=('a3a628742e61f4283620584d4a71d805ced1c9c76349be67d195e0886429c1a3e865d432d933663d154f1184023b3205ca89075df918e4a9a23c6f40a0315dd7'
+sha512sums=('5d98d4cc4e2be30f11f5c9921173e04cbccfa2c5b10650f4a4fef67e06dba2b660a986db3c3d65ca9f89328af7196b08b4a560bf92b35a115cfc1bba095bfd8a'
             'SKIP')
-b2sums=('53a97c5085d3b88a685796f7fb487fd75f07d370965d4b2e1be5c0f66d51fe8dffca9afd40edbc5e2e2ce5eeff82d5e8ca082d4c93e79cbc9d49132d5d78939c'
+b2sums=('424fcceb2a3d530b1f81698a7270423b41f78bc2ae4f09747b3ace4d2d0545b733033354e612a33c9e2677dedab8cc8af37db4a901cf245438a894a6dd48c7a8'
         'SKIP')
 validpgpkeys=(
   'E240B57E2C4630BA768E2F26FC1B547C8D8172C8'  # Levente Polyak

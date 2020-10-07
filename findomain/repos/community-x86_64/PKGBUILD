@@ -2,7 +2,7 @@
 # Contributor: Eduard Tolosa <edu4rdshl@protonmail.com>
 
 pkgname=findomain
-pkgver=2.1.1
+pkgver=2.1.4
 pkgrel=1
 pkgdesc='The fastest and cross-platform subdomain enumerator, do not waste your time'
 url='https://github.com/Edu4rdSHL/findomain'
@@ -12,8 +12,8 @@ depends=('gcc-libs')
 makedepends=('cargo')
 optdepends=('postgresql: for subdomain monitoring')
 source=("https://github.com/Edu4rdSHL/${pkgname}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz")
-sha512sums=('6580488898f9b6b42291638eae171609b77d174c822bb1e10d565dbc22db8934fa79ef13db13178ad7a8cf455d7df859bff99045f41b2376424d25fdd733f623')
-b2sums=('1d9d5f9dd8aac98becca92e0e9a36fb4a109a981ccd9f33dcd888540570a8ae0b994b21a6571b55c61960cc54e98aa2eb4e5a4aa7c6d37eed31c183e1f17b053')
+sha512sums=('3a206037cbe92f28c9816ffa8b3f66d70737edcc687de8e4f919fe657b05d26485f0c649a17a3ca2109027ffaf340973f770e207bfeaca91fb382f5e9bac64e3')
+b2sums=('1e3a7df8ca2b9c7111aad0c87106a6b800c5b9b6da3b82b522da49689a683e1365a9701107a44dcd7a88a2e56d509946c44a37b67d35c92c5663b5b91aa1afb6')
 
 build() {
   cd ${pkgname}-${pkgver}

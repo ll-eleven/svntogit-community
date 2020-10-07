@@ -2,19 +2,21 @@
 
 _name=diff_cover
 pkgname=python-diff-cover
-pkgver=3.0.1
+pkgver=4.0.1
 pkgrel=1
 pkgdesc="Automatically find diff lines that need test coverage"
 arch=('any')
 url="https://github.com/Bachmann1234/diff_cover"
 license=('Apache')
 depends=('python-jinja' 'python-jinja_pluralize' 'python-pluggy'
-'python-pygments' 'python-setuptools' 'python-six')
+'python-pygments' 'python-setuptools')
 checkdepends=('flake8' 'python-pytest' 'python-mock' 'python-pytest-cov'
 'python-pycodestyle' 'python-pyflakes' 'python-pylint' 'python-pydocstyle')
 source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz"{,.asc})
-sha512sums=('bb04b110a9601db8734c1dd925571c7f2905e14bc5d838338b4e02370832e807d6f7c60d1f714157ac357526bc87c96efa7796be378f53c7ef7f30f525911b08'
+sha512sums=('a5f124cf602937f089094d38c9eba9a1babdadcff9b65d4b8cb909c6bcaaf61c7832f8c30d4453f50d0965687e9fe9a25060fb824cd997f641d7fec769f0232b'
             'SKIP')
+b2sums=('e4ff84f9eaf8acb3ff659a15670d957c8601c45f2528086b0e76f949e06682af91f8b873f23432fc79b0471b6ab1f5f6c03c65bc10cc5d795e2ff273f2d2153d'
+        'SKIP')
 validpgpkeys=('54CAEABCAC2956D407348256972401BDE60128CB') # Matt Bachmann <matt.bachmann@lola.com>
 
 prepare() {

@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=perl-test-simple
-pkgver=1.302177
+pkgver=1.302182
 pkgrel=1
 pkgdesc="Basic utilities for writing tests"
 arch=('any')
@@ -10,7 +10,7 @@ url="https://metacpan.org/release/Test-Simple"
 depends=('perl')
 options=('!emptydirs')
 source=("https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-$pkgver.tar.gz")
-sha512sums=('382b3a614946d0701f6a3b4914ae0bc66db5368e657cd47f40136ffd1b22a117258e28a38db71ea11aecb083c8366479690a7bd59b0af4b05470b140e6e1cdd4')
+sha512sums=('38f7372c5c236032f59f7589d07da55fc99a1cbb5b6347f1eeb854932106ff8ac42c2c0a04bce5a4b7cf771968fd26fb6648d92546ed97a195667b356639498d')
 
 build() {
   cd Test-Simple-$pkgver

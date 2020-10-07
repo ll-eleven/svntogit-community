@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=ukui-panel
-pkgver=3.0.1
+pkgver=3.0.3
 pkgrel=1
 pkgdesc="Launcher and docking facility for UKUI"
 arch=('x86_64')
@@ -14,7 +14,7 @@ depends=('dconf' 'gsettings-qt' 'kwindowsystem' 'libqtxdg' 'peony' 'qt5-webkit' 
          'ukui-menu' 'ukui-menus')
 makedepends=('cmake' 'ninja' 'qt5-tools')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/ukui/ukui-panel/archive/v$pkgver.tar.gz")
-sha512sums=('a396ed49574ea8dfd7059943d0db22f85b53aedd56a1ee9c967316d8850cebce2b3a5dcfce20c5b3dd7df219b39e147b72212f55433c252f580ed841d8ad0bab')
+sha512sums=('9aec7f75f7f042a43a5fb817c81ff8680b47027eea387cd27ff0ad841b5b3048724eaf88527c76d986d524601f10d413a293a04a3dca5baa36b89b25e7dfb5d6')
 
 prepare() {
   mkdir -p build

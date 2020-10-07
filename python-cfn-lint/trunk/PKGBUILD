@@ -1,21 +1,22 @@
 # Maintainer: Chih-Hsuan Yen <yan12125@archlinux.org>
 
 pkgname=python-cfn-lint
-pkgver=0.35.0
+pkgver=0.37.0
 pkgrel=1
 pkgdesc='CloudFormation Linter'
 arch=(any)
 url='https://github.com/aws-cloudformation/cfn-python-lint'
 license=('custom:MIT No Attribution')
 depends=(python python-yaml python-six python-aws-sam-translator
-         python-jsonpatch python-jsonschema python-setuptools python-networkx
+         python-jsonpatch python-jsonschema python-networkx
          python-junit-xml)
+makedepends=(python-setuptools)
 checkdepends=(python-pytest python-mock python-pydot)
 optdepends=(
   'python-pydot: for building graphs from templates'
 )
 source=("https://github.com/aws-cloudformation/cfn-python-lint/archive/v$pkgver/cfn-python-lint-$pkgver.tar.gz")
-sha256sums=('f9665b69b60ceb9c608ca40b2f2b0e39f51aecf3243ef78407292e09444e2b79')
+sha256sums=('e01fa6b86438985333bd07d0494aeac811c77a99042440212fbe835e2a2c7a2e')
 
 build() {
   cd cfn-python-lint-$pkgver
@@ -30,7 +31,7 @@ check() {
 
   export PYTHONPATH="$PWD/src"
   export PATH="$PATH:$srcdir/tmp_install"
-  pytest -v test
+  pytest test
 }
 
 package() {

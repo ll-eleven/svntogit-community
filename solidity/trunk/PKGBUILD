@@ -1,8 +1,8 @@
 # Maintainer: Nicola Squartini <tensor5@gmail.com>
 
 pkgname=solidity
-pkgver=0.7.0
-_commit=9e61f92bd4d19b430cb8cb26f1c7cf79f1dff380
+pkgver=0.7.2
+_commit=51b20bc0872bb9049e205d5547023cb06d1df9db
 pkgrel=1
 pkgdesc='Contract-Oriented Programming Language'
 arch=('x86_64')

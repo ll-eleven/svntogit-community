@@ -2,7 +2,7 @@
 # Contributor: Daniel Nagy <danielnagy at gmx de>
 
 pkgname=uglify-js
-pkgver=3.10.3
+pkgver=3.11.1
 pkgrel=1
 pkgdesc="JavaScript parser, mangler/compressor and beautifier toolkit"
 arch=('any')
@@ -13,7 +13,7 @@ makedepends=('npm')
 install=${pkgname}.install
 source=(https://registry.npmjs.org/$pkgname/-/$pkgname-$pkgver.tgz)
 noextract=($pkgname-$pkgver.tgz)
-sha512sums=('2e1d348baf547fa1bbe26bd8a47088f4a5555cb7075bfc6eefd613bc7ecc91cf73c8a51e48fcf4a305b4760ba3d1271abe7b3764e877c18eb727465bf7b65ada')
+sha512sums=('380a4f4ae25cc5c9dec308d21867d63a3c77a22c795e99ab2bd6768f47d34651c6a19e3d214ea41317d94ccd3ef9f080ace3827adfaf21f5b01476ef5aac29ea')
 
 package() {
   npm install -g --user root --prefix "$pkgdir"/usr "$srcdir"/$pkgname-$pkgver.tgz

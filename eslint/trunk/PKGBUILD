@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=eslint
-pkgver=7.7.0
+pkgver=7.10.0
 pkgrel=1
 pkgdesc='An AST-based pattern checker for JavaScript'
 arch=('any')
@@ -11,7 +11,7 @@ depends=('nodejs' 'acorn')
 makedepends=('npm')
 source=("https://registry.npmjs.org/$pkgname/-/$pkgname-$pkgver.tgz")
 noextract=("$pkgname-$pkgver.tgz")
-sha512sums=('d4a5312f3a2cd1956cc8bf353e744ddf7e670ed43cfef6540fab8cb566c5fb9cc3b6329cb249488bbf17a04d0c54bf7742f593bbe139cb8e15cb20ac38c06b22')
+sha512sums=('04355f7e6a9697b2495ea0a300aea55ad7104e1641fda3f51d7487d492b01b0bf42d011dbe947bab336b513e3ced1337f41e60a16b9ba0569de68bcc0660fcc8')
 
 package() {
   npm install -g --user root --prefix "$pkgdir"/usr "$srcdir"/$pkgname-$pkgver.tgz

@@ -4,8 +4,8 @@
 
 pkgname=lib32-systemd
 _pkgbasename=systemd
-_tag='b5ca06f13739f6fae3b73ccfc89d1e4d152329a2' # git rev-parse v${pkgver}
-pkgver=246.3
+_tag='27d60e13ed5db2194cac14ad4cc86ad06d753805' # git rev-parse v${pkgver}
+pkgver=246.6
 pkgrel=1
 pkgdesc='system and service manager (32-bit)'
 arch=('x86_64')

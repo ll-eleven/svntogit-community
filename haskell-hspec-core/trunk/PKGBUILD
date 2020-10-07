@@ -2,8 +2,8 @@
 
 _hkgname=hspec-core
 pkgname=haskell-hspec-core
-pkgver=2.7.2
-pkgrel=28
+pkgver=2.7.4
+pkgrel=18
 pkgdesc="A Testing Framework for Haskell"
 url="http://hspec.github.io/"
 license=('MIT')
@@ -13,7 +13,7 @@ depends=('ghc-libs' 'haskell-ansi-terminal' 'haskell-call-stack' 'haskell-clock'
          'haskell-random' 'haskell-setenv' 'haskell-tf-random')
 makedepends=('ghc' 'haskell-hspec-meta' 'haskell-silently' 'haskell-temporary')
 source=(https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-sha512sums=('ba0f9b00715ab6f8c830971b5d54f120619911e3340461d4e7f2e013d1e5810350c9260093f92e780526b98f54d2b5901162cfd4a5d7fe495d735afe2477d0c2')
+sha512sums=('4dae2318ddc2d647ee273ebdbdb349bfdb8883d860681a932347fddcd012c4813c2f412804a9fe78a01d6c62ae4347bfedb7b4d46720c4ab75fb01caea99b6cc')
 
 build() {
     cd $_hkgname-$pkgver

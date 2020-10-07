@@ -3,8 +3,8 @@
 # Contributor: csslayer <wengxt AT gmail com>
 
 pkgname=fcitx5-configtool
-pkgver=0.0.0.20200829
-_commit=aa49e858d73f5255e25a8d6f8f2f308e096700b3
+pkgver=0.0.0.20201001
+_commit=7031cf44426560b8ea2792984440969ef5423bf1
 pkgrel=1
 pkgdesc="Configuration Tool for Fcitx5"
 arch=('x86_64')
@@ -19,7 +19,7 @@ optdepends=('kdeclarative: for KCM support'
             'kirigami2: for KCM support')
 makedepends=('extra-cmake-modules' 'kdeclarative' 'kirigami2' 'ninja' 'python')
 source=("https://github.com/fcitx/fcitx5-configtool/archive/$_commit/fcitx5-configtool-$_commit.tar.gz")
-sha512sums=('90905b8d766340ed030f2bc00944120f2dde5b7c69e1d09cabdc4ebc33811d7a08e12524cfdb3c5c08f3ecc2e223a065c8488fc4ab7742d696af31faf53a1164')
+sha512sums=('c2ec456ff5f2aa7365dd58779192b2173361183560e644d73af8b069b589a844facd74ab14542bea4c3e9db53287bc75bb8eab647c55405a7c72690a2cb80aa0')
 
 build(){
   cd $pkgname-$_commit

@@ -2,7 +2,7 @@
 # Contributor: Aram Drevekenin <aram@poor.dev>
 
 pkgname=bandwhich
-pkgver=0.16.0
+pkgver=0.19.0
 pkgrel=1
 pkgdesc='Terminal bandwidth utilization tool'
 url='https://github.com/imsnif/bandwhich'
@@ -11,8 +11,8 @@ license=('MIT')
 depends=('gcc-libs')
 makedepends=('cargo')
 source=(https://github.com/imsnif/${pkgname}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz)
-sha512sums=('c8708ebce6799cb4017e2dae40735d83b2dc51736048c1f7cdf5a59197434a30f7a5a3ccb3bb323892cada24de88099660a42c0a0f2cd7c477bf5a7d5b1ac158')
-b2sums=('6571e291648ce3ae2851f82e5ea0a75b98ac52ff11d563dae1c381977782d4bc1f832c31063fa49e4666e8372b031ca348712f0bf487b46da6529135fab2c796')
+sha512sums=('0afdf8d5b8b53d91fb9adbc21bc454f668a7944edc5ba05b6642d9679dcef409971ec0a526d9df9bf3dd410f77fac550ba8321bd59f49d6cc13744940f7c7976')
+b2sums=('7b523df1b5cae4e991bb571c44af4d17a3c1ef9ec7064d4ccfdb6d4a26025f68e24c6acff56b2e0c26546aac847ba2250f7fe7aaf7bcdf925bd87a2a33acba2e')
 
 build() {
   cd "${pkgname}-${pkgver}"

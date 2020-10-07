@@ -5,16 +5,17 @@
 
 pkgbase=kitty
 pkgname=(kitty kitty-terminfo)
-pkgver=0.18.3
+pkgver=0.19.1
 pkgrel=1
 pkgdesc="A modern, hackable, featureful, OpenGL-based terminal emulator"
 arch=('x86_64')
 url="https://github.com/kovidgoyal/kitty"
 license=('GPL3')
-depends=('python3' 'freetype2'  'fontconfig' 'wayland' 'libx11' 'libxkbcommon-x11' 'libxi' 'hicolor-icon-theme' 'libgl' 'libcanberra' 'dbus')
+depends=('python3' 'freetype2'  'fontconfig' 'wayland' 'libx11' 'libxkbcommon-x11' 'libxi'
+         'hicolor-icon-theme' 'libgl' 'libcanberra' 'dbus' 'lcms2')
 makedepends=('libxinerama' 'libxcursor' 'libxrandr' 'wayland-protocols' 'python-sphinx')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/kovidgoyal/$pkgname/archive/v$pkgver.tar.gz")
-sha512sums=('dee04572905f735ac098e8406ec3f36c2eb4d21ff0c6ff1b94216fab2b861c4d72a865b36cc18be1d9ed77235c33cc01a207e1992260da47679ff8b83f62f6e8')
+sha512sums=('880eaf4bf5f40b787f77c87cb3a884ae2a0791c2182e54b496ad350cadf6c046155dd8cd62e66d62214bc25562ef1eb6f88ba394a88b679db9f00e8acf6034e5')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"

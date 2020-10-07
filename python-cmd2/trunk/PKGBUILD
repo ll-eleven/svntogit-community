@@ -2,7 +2,7 @@
 # Contributor: Daniel Wallace <danielwallace at gtmanfred dot com>
 
 pkgname=python-cmd2
-pkgver=1.3.8
+pkgver=1.3.11
 pkgrel=1
 pkgdesc="A tool for building interactive command line apps"
 arch=('any')
@@ -12,7 +12,7 @@ depends=('python-attrs' 'python-colorama' 'python-pyperclip' 'python-wcwidth')
 makedepends=('python-setuptools-scm')
 checkdepends=('python-pytest-runner' 'python-pytest-xdist' 'python-pytest-mock' 'vi')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/python-cmd2/cmd2/archive/$pkgver.tar.gz")
-sha512sums=('0aacfaa4c401985df80f971bba671f605310295587edb4ee1e82f9d15a60ad8817b0ea79f464576da618afcb537dbc3eb26997c068d4dcdb196a4365bf325678')
+sha512sums=('30319ccc68b66b9d98b92f29dea7466f8e8321caa87118f169e0b5e3e05764f8ba37cfa206a883442852b1fac4e9fe67857248fd6946303beede0f1a4a6cc2a3')
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=$pkgver
 

@@ -2,18 +2,18 @@
 # Contributor: Peter Cai <peter at typeblog dot net>
 
 pkgname=udp2raw-tunnel
-pkgver=20181113.0
-pkgrel=3
+pkgver=20200818.0
+pkgrel=1
 pkgdesc='An Encrypted, Anti-Replay, Multiplexed UdP Tunnel, tunnels udp traffic through fake-tcp or icmp by using raw socket'
 url='https://github.com/wangyu-/udp2raw-tunnel'
-arch=('x86_64' 'i686')
+arch=('x86_64')
 depends=('iptables')
 license=('MIT')
 install=udp2raw-tunnel.install
 source=("$pkgname-$pkgver.tar.gz::https://github.com/wangyu-/udp2raw-tunnel/archive/$pkgver.tar.gz"
         "udp2raw_script.sh"
         "udp2raw@.service")
-sha512sums=('92b1f3bcfdf3eb9c20db94d1f0e47cde1784691e5058920095830c98ca9d6ac22e178b820b0c6ebc4d6562362864e94e3d08e3f77d910634c4813f240b554a1a'
+sha512sums=('d2153d6f860442d595e79976d03bf4a88b97f4bd647bb8912426c91c93d28cc539f95ae693f2bd6b3b6f2c650718588b5890ebc53ad65db06b400b2e49e14ecd'
             'bd58325188f7a4d143d97ea6dfb0b8f2f86f6b82b8cb7496478fb3a9c425d42044db91bd7f554ed95443ce11bad288d48aad1f76404e3efec68ecbff8c56820f'
             'f1e2831c02163646c26601896a617e07704dc1b6324fc73f4ea576959bd33d70425472d42333ad8b7f210bd8761a83bf08db40987b016067f01590703982ae42')
 

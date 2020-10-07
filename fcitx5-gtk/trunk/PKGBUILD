@@ -3,8 +3,8 @@
 # Contributor: csslayer <wengxt AT gmail com>
 
 pkgname=fcitx5-gtk
-pkgver=0.0.0.20200820
-_commit=d26dd52fba08ba1822ef2afffea5eaad480afd7f
+pkgver=0.0.0.20200913
+_commit=8835e96d9ce0620b930d3f4ef7db73ceae4f029c
 pkgrel=1
 pkgdesc="Fcitx5 gtk im module and glib based dbus client library"
 arch=('x86_64')
@@ -14,7 +14,7 @@ groups=('fcitx5-im')
 depends=('fcitx5')
 makedepends=('extra-cmake-modules' 'gobject-introspection' 'gtk2' 'gtk3' 'ninja')
 source=("https://github.com/fcitx/fcitx5-gtk/archive/$_commit/fcitx5-gtk-$_commit.tar.gz")
-sha512sums=('1705908aea12fc96f27018b65ab2a0de72b3d53fb21002e5541dffe110944be87f95085cdcc34b23bd7cf35a66d1e3167a4c3ba8da5a0f2cbd99b80eed7c1e04')
+sha512sums=('52d29182f73ce89bda0ef5c0cd49bee299ba1e58e9acbcbec9dcccf21078c41915a975606d81b17ee777627a78d7fefc3992d7aef71cfd5b32ad0e1398319dcd')
 
 build(){
   cd $pkgname-$_commit
